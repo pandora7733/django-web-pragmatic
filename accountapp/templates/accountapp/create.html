@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/accountappcss/create.css' %}?after">
+{% endblock %}
+
+{% block content %}
+
+    <div class="accountapp_content_create">
+        <div class="mb-4">
+            <h4>Sign Up</h4>
+        </div>
+        <form action="{% url 'accountapp:create' %}" method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <input type="submit" class="btn btn-primary rounded-pill col-4 mt-3">
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/accountappcss/detail.css' %}?after">
+<link rel="stylesheet" href="{% static 'css/articleappcss/list.css' %}?after">
+{% endblock %}
+
+{% block content %}
+
+    <div>
+        <div class="accountapp_content_detail">
+            <p>
+                {{ target_user.date_joined }}
+            </p>
+        
+            {% if target_user.profile %}
+            <img class="accountapp_profile_image" src="{{ target_user.profile.image.url }}" alt="프로필 이미지">
+            <h2>
+                {{ target_user.profile.nickname }}
+                    {% if target_user == user %}
+                    <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                        <span style="box-shadow: 0 0 4px #ccc" class="material-symbols-outlined">
+                            settings
+                        </span>
+                    </a>
+                    {% endif %}
+            </h2>
+            <h5 style="margin-bottom: 3rem; ">
+                {{ target_user.profile.message }}
+            </h5>
+            {% else %}
+            {% if target_user == user %}
+            <a href="{% url 'profileapp:create' %}">
+                <h2>
+                    Create Profile
+                </h2>
+            </a>
+            {% else %}
+            <h2>
+                닉네임 미설정
+            </h2>
+            {% endif %}
+            {% endif %}
+
+            {% if target_user == user %}
+            <a href="{% url 'accountapp:update' pk=target_user.pk %}">
+                <p>
+                    Change Password
+                </p>
+            </a>
+            <a href="{% url 'accountapp:delete' pk=target_user.pk %}">
+                <p>
+                    Del account
+                </p>
+            </a>
+            {% endif %}
+        </div>
+
+        <div>
+
+            {% include 'snippets/list_fragment.html' with article_list=object_list %}
+
+        </div>
+
+    </div>
+
+{% endblock %}

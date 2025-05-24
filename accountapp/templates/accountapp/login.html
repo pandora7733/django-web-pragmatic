@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/accountappcss/login.css' %}?after">
+{% endblock %}
+
+{% block content %}
+
+    <div class="accountapp_content_login">
+        <div>
+            <h4>Login</h4>
+        </div>
+        <div>
+            <form action="" method="post">
+                {% csrf_token %}
+{#                {{ form }}#}
+                {% bootstrap_form form %}
+                <input type="submit" class="btn btn-primary rounded-pill col-4 mt-3">
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

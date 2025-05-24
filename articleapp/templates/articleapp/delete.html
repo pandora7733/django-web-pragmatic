@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/articleappcss/delete.css' %}?after">
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="articleapp_content_delete">
+        <div class="mb-4">
+            <h4>Delete Article : {{ target_article.title }}</h4>
+        </div>
+        <form action="{% url 'articleapp:delete' pk=target_article.pk %}" method="post">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-danger rounded-pill col-4 mt-3">
+        </form>
+    </div>
+
+{% endblock %}

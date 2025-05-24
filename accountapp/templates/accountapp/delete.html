@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/accountappcss/delete.css' %}?after">
+{% endblock %}
+
+{% block content %}
+
+    <div class="accountapp_content_delete">
+        <div class="mb-4">
+            <h4>Delete account</h4>
+        </div>
+        <form action="{% url 'accountapp:delete' pk=target_user.pk %}" method="post">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-danger rounded-pill col-4 mt-3">
+        </form>
+    </div>
+
+{% endblock %}

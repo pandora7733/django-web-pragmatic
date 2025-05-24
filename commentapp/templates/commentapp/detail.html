@@ -1,0 +1,25 @@
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/commentappcss/detail.css' %}?after">
+{% endblock %}
+
+<div class="commentapp_content_detail">
+    <div>
+        <strong>
+            {{comment.writer.profile.nickname }}
+        </strong>
+        &nbsp&nbsp&nbsp
+        {{ comment.created_at }}
+    </div>
+    <div>
+        {{ comment.content }}
+    </div>
+    {% if comment.writer == user %}
+    <div>
+        <a href="{% url 'commentapp:delete' pk=comment.pk %}" class="btn btn-danger rounded-pill">
+            Delete
+        </a>
+    </div>
+    {% endif %}
+</div>

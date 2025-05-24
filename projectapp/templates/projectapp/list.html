@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/projectappcss/list.css' %}?after">
+{% endblock %}
+
+{% block content %}
+
+    {% if project_list %}
+    <div class="container">
+        {% for project in project_list %}
+        <form action="{% url 'projectapp:detail' pk=project.pk %}" method="get" style="display:inline;">
+            <button type="submit" class="btn btn-link" style="all: unset; cursor: pointer;">
+                {% include 'snippets/card_project.html' with project=project %}
+            </button>
+        </form>
+        {% endfor %}
+    </div>
+    <script src="{% static 'javascript/magic-grid.min.js' %}"></script>
+    {% else %}
+    <div class="text-center">
+        <h1>No Projects YET!</h1>
+    </div>
+    {% endif %}
+
+    {% include 'snippets/pagination.html' with page_obj=page_obj %}
+
+    <div style="text-align: center">
+        <a href="{% url 'projectapp:create' %}" class="btn btn-dark rounded-pill mt-3 mb-3 px-3">
+            Create Project
+        </a>
+    </div>
+
+    <script src="{% static 'javascript/magic-gird.js' %}"></script>
+
+{% endblock %}

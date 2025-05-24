@@ -1,0 +1,69 @@
+<div class="pragmatic_header">
+    <div>
+        <h1 class="pragmatic_logo">Progmatic</h1>
+    </div>
+    <div class="header_navbar">
+        <form class="header_navbar_form" action="{% url 'articleapp:list' %}" method="get">
+        {% csrf_token %}
+        <button class="header_navbar_button" type="submit">
+            <span class="header_navbar_span">Articles</span>
+        </button>
+        </form>
+
+
+        <form class="header_navbar_form" action="{% url 'projectapp:list' %}" method="get">
+        {% csrf_token %}
+        <button class="header_navbar_button" type="submit">
+            <span class="header_navbar_span">Projects</span>
+        </button>
+        </form>
+
+        <form class="header_navbar_form" action="{% url 'subscribeapp:list' %}" method="get">
+        {% csrf_token %}
+        <button class="header_navbar_button" type="submit">
+            <span class="header_navbar_span">subscription</span>
+        </button>
+        </form>
+
+
+
+        {% if not user.is_authenticated %}
+{#        <a href="{% url 'accountapp:login' %}?next={{ request.path }}">#}
+{#            <span>login</span>#}
+{#        </a>#}
+
+        <form class="header_navbar_form" action="{% url 'accountapp:create' %}" method="post">
+        {% csrf_token %}
+        <button class="header_navbar_button" type="submit">
+            <span class="header_navbar_span">SignUp</span>
+        </button>
+        </form>
+
+        <form class="header_navbar_form" action="{% url 'accountapp:login' %}?next={{ request.path }}" method="get">
+        {% csrf_token %}
+        <button class="header_navbar_button" type="submit">
+            <span class="header_navbar_span">login</span>
+        </button>
+        </form>
+
+        {% else %}
+{#        <a href="{% url 'accountapp:logout' %}?next={{ request.path }}">#}
+{#            <span>logout</span>#}
+{#        </a>#}
+        <form class="header_navbar_form" action="{% url 'accountapp:detail' pk=user.pk %}" method="get">
+            {% csrf_token %}
+            <button class="header_navbar_button" type="submit">
+                <span class="header_navbar_span">MyPage</span>
+            </button>
+        </form>
+
+        <form class="header_navbar_form" action="{% url 'accountapp:logout' %}?next={{ request.path }}" method="post">
+            {% csrf_token %}
+            <button class="header_navbar_button" type="submit">
+                <span class="header_navbar_span">logout</span>
+            </button>
+        </form>
+
+        {% endif %}
+    </div>
+</div>

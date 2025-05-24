@@ -1,0 +1,15 @@
+.commentapp_content_detail{
+    border: 1px solid;
+    text-align: left;
+    padding: 4%; margin: 1rem 0;
+    border-radius: 1rem;
+    border-color: #bbb;
+}
+
+.commentapp_content_detail div:nth-child(2) {
+    margin: 1rem;
+}
+
+.commentapp_content_detail div:nth-child(3) {
+    text-align: right;
+}

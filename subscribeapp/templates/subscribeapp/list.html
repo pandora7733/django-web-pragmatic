@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/articleappcss/list.css' %}?after">
+{% endblock %}
+
+{% block content %}
+
+    <div>
+        {% include 'snippets/list_fragment.html' with article_list=article_list %}
+    </div>
+
+{% endblock %}
