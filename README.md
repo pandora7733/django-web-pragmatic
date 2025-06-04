@@ -93,8 +93,8 @@
    ```
    
 ## 문의 / 제안
-mail: <pelomon73@gmail.com>
-instagram: <https://www.instagram.com>
+- mail: <pelomon73@gmail.com>
+- instagram: <https://www.instagram.com>
 ---
 
 © 2025 Django Project
