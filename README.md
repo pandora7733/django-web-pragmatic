@@ -7,7 +7,7 @@
 
 ### Django 기능
 - **MTV 구조 (Model-Template-View)** 기반 설계
-- **ORM (Object Relational Mapping)**으로 데이터베이스 조작
+- **ORM (Object Relational Mapping)** 으로 데이터베이스 조작
 - **URL Dispatcher**를 활용한 URL-View 연결
 - **Function-Based & Class-Based Views** 혼합 사용
 - **Template System**을 활용한 데이터 렌더링
