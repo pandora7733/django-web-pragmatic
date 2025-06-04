@@ -94,7 +94,7 @@
    
 ## 문의 / 제안
 - mail: <pelomon73@gmail.com>
-- instagram: <https://www.instagram.com>
+- instagram: <https://www.instagram.com/bmt._.psh/>
 - linked in: <https://www.linkedin.com/in/sihoo-park-89541431b/>
 ---
 
