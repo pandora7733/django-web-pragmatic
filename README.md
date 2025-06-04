@@ -95,6 +95,7 @@
 ## 문의 / 제안
 - mail: <pelomon73@gmail.com>
 - instagram: <https://www.instagram.com>
+- linked in: <https://www.linkedin.com/in/sihoo-park-89541431b/>
 ---
 
 © 2025 Django Project
